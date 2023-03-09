@@ -5,12 +5,6 @@ public class Main {
         Agenda agenda = new Agenda();
         Scanner entrada = new Scanner(System.in);
 
-        agenda.novoContato("Nikely", "85 9 7532-1598", "15/04");
-        agenda.novoContato("Carlos", "85 9 9514-8456", "03/10");
-        agenda.novoContato("Caio", "85 9 7489-6532", "12/05");
-        agenda.novoContato("Felipe", "85 9 7489-6532", "06/07");
-
-
         boolean stop = false;
         while (stop != true) {
             System.out.println(" ===============  Agenda  =============== ");
