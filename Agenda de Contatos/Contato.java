@@ -42,4 +42,6 @@ public class Contato {
     public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
+
+    
 }
