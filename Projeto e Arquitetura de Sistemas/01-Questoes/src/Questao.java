@@ -21,7 +21,8 @@ public class Questao {
   }
 
   public void apresentarQuestao() {
-    System.out.println(this.enunciado);
+	System.out.println();
+    System.out.println("Questão: " + this.enunciado);
     System.out.println("1. " + this.alternativa_1);
     System.out.println("2. " + this.alternativa_2);
     System.out.println("3. " + this.alternativa_3);
