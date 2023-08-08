@@ -11,14 +11,13 @@ public class Prova {
 	public void realizarProva() throws IOException, InterruptedException {
 		try {
 			for (int i = 0; i < questoes.length; i++) {
-				int answer = 0;
-				while (answer < 1 || answer > 4) {
+				do {
 					Terminal.limparConsole();
 					questoes[i].apresentarQuestao();
 					System.out.println();				
 					System.out.println("Escolha uma alternativa:");
-					answer =  input.nextInt(); 
-				}
+					int answer =  input.nextInt(); 
+				} while (answer < 1 || answer > 4);
 				respostas[i] = answer;
 			}
 		} catch (IOException | InterruptedException e) {
