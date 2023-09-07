@@ -1,3 +1,5 @@
+package ListaEstatica;
+
 public class StaticQueue<T> implements Queue<T> {
 	private T[] queue;
 	private int numberOfElements;

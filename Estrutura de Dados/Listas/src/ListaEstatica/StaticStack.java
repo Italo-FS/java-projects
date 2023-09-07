@@ -1,3 +1,5 @@
+package ListaEstatica;
+
 public class StaticStack<T> implements Stack<T> {
 	private T[] stack;
 	private int numberOfElements;

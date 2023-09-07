@@ -1,3 +1,5 @@
+package ListaEstatica;
+
 interface Queue<T> {
 	public int size();
 

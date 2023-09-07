@@ -1,3 +1,5 @@
+package ListaEstatica;
+
 interface Stack<T> {
 	public int size();
 
