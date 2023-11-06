@@ -6,6 +6,7 @@ public class B1259 {
         MaxHeap odd = new MaxHeap();
 
         Scanner sc = new Scanner(System.in);
+        StringBuilder sb = new StringBuilder();
 
         int inputsNumber = Integer.parseInt(sc.nextLine());
 
@@ -20,8 +21,10 @@ public class B1259 {
         }
         sc.close();
 
-        even.chop();
-        odd.chop();
+        sb.append(even.chop());
+        sb.append(odd.chop());
+
+        System.out.println(sb);
     }
 
     public static boolean isEven(int value) {
@@ -178,20 +181,14 @@ public class B1259 {
             nodeB.value = tempValue;
         }
 
-        public void chop() {
+        public String chop() {
             StringBuilder sb = new StringBuilder();
-            // String string = "";
             while (root != null) {
                 int value = removeRoot().value;
-                // System.out.println(value);
                 sb.append(value);
                 sb.append("\n");
-
-                // string = string + value + "\n";
             }
-            // System.out.print(string);
-            String result = sb.toString();
-            System.out.print(result);
+            return sb.toString();
         }
 
         public abstract void swim(TreeNode node);
