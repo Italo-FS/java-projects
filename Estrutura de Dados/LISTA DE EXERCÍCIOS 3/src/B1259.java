@@ -22,6 +22,7 @@ public class B1259 {
         sc.close();
 
         sb.append(even.chop());
+        sb.append("\n");
         sb.append(odd.chop());
 
         System.out.println(sb);
