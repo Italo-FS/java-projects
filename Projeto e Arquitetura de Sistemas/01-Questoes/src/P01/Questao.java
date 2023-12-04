@@ -1,13 +1,15 @@
+package P01;
+
 public class Questao {
   String enunciado;
   String alternativa_1;
   String alternativa_2;
   String alternativa_3;
   String alternativa_4;
-  int resposta;    
+  int resposta;
 
   public Questao(String enunciado, String alternativa_1, String alternativa_2, String alternativa_3,
-    String alternativa_4, int resposta) {
+      String alternativa_4, int resposta) {
     this.enunciado = enunciado;
     this.alternativa_1 = alternativa_1;
     this.alternativa_2 = alternativa_2;
@@ -21,7 +23,7 @@ public class Questao {
   }
 
   public void apresentarQuestao() {
-	System.out.println();
+    System.out.println();
     System.out.println("Questão: " + this.enunciado);
     System.out.println("1. " + this.alternativa_1);
     System.out.println("2. " + this.alternativa_2);

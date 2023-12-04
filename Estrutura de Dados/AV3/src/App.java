@@ -1,25 +1,25 @@
 public class App {
 
   public static void main(String[] args) throws Exception {
-    Stack<BinarySearchTree<String>> stackTree = new Stack<>();
+    Stack<BinarySearchTree<String>> treeStack = new Stack<>();
 
     String fileContent = File.read("arquivo.txt");
 
     for (String row : fileContent.split("\\n")) {
-      Stack<String> fileStack = new Stack<>();
-      stackTree.push(new BinarySearchTree<String>());
+      Stack<String> wordStack = new Stack<>();
+      treeStack.push(new BinarySearchTree<String>());
 
       for (String word : row.split("\\s+")) {
-        fileStack.push(word);
+        wordStack.push(word);
       }
 
-      while (fileStack.getHeight() > 0) {
-        stackTree.peek().insert(fileStack.pop());
+      while (wordStack.getHeight() > 0) {
+        treeStack.peek().insert(wordStack.pop());
       }
     }
 
-    while (stackTree.getHeight() > 0) {
-      System.out.println(stackTree.pop().hashTree());
+    while (treeStack.getHeight() > 0) {
+      System.out.println(treeStack.pop().hashTree());
     }
   }
 }

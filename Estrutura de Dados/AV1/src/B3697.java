@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class B3697 {
   public static void main(String[] args) {
 
-    DoubleLinkedList primeList = new DoubleLinkedList(true);
-    DoubleLinkedList notPrimeList = new DoubleLinkedList(false);
+    DoubleLinkedList primeList = new DoubleLinkedList();
+    DoubleLinkedList notPrimeList = new DoubleLinkedList();
 
     Scanner sc = new Scanner(System.in);
 
@@ -22,11 +22,11 @@ public class B3697 {
     sc.close();
 
     if (primeList.length == 0 || notPrimeList.length == 0) {
-      System.out.println("Uma das listas está vazia.");
+      System.out.println("Uma das estruturas está vazia!");
     } else {
       primeList.print();
       System.out.println("-");
-      notPrimeList.print();
+      notPrimeList.printInverted();
     }
   }
 
@@ -42,10 +42,8 @@ public class B3697 {
     private Node head;
     private Node tail;
     private int length;
-    private boolean crescentOrder;
 
-    public DoubleLinkedList(boolean crescentOrder) {
-      this.crescentOrder = crescentOrder;
+    public DoubleLinkedList() {
       this.length = 0;
       this.head = null;
       this.tail = null;
@@ -56,6 +54,14 @@ public class B3697 {
       do {
         System.out.println(auxNode.value);
         auxNode = auxNode.next;
+      } while (auxNode != null);
+    }
+
+    public void printInverted() {
+      Node auxNode = this.tail;
+      do {
+        System.out.println(auxNode.value);
+        auxNode = auxNode.previous;
       } while (auxNode != null);
     }
 
@@ -95,25 +101,23 @@ public class B3697 {
         insertFirstNode(node);
       else {
         Node auxNode = this.head;
-        while (true) {
-          if ((node.value < auxNode.value && this.crescentOrder)
-              || (node.value > auxNode.value && !this.crescentOrder)) {
 
-            if (auxNode == this.head)
-              unshift(node);
-            else {
-              node.previous = auxNode.previous;
+        if (node.value < this.head.value)
+          this.unshift(node);
+        else if (node.value > this.tail.value)
+          this.push(node);
+        else {
+          while (true) {
+            if (node.value < auxNode.value) {
               node.next = auxNode;
+              node.previous = auxNode.previous;
+              auxNode.previous.next = node;
               auxNode.previous = node;
               this.length++;
+              break;
             }
-
-            break;
-          } else if (auxNode.next == null) {
-            push(node);
-            break;
+            auxNode = auxNode.next;
           }
-          auxNode = auxNode.next;
         }
       }
     }
