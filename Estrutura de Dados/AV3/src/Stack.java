@@ -1,23 +1,43 @@
+/**
+ * Pilha genérica.
+ *
+ * @param <T> tipo genérico de elementos armazenados na pilha
+ */
 public class Stack<T> {
 
+  /**
+   * Classe interna que representa um nó na pilha.
+   */
   public class Node {
 
-    T data;
-    Node next;
+    T data; // Dados armazenados no nó.
+    Node next; // Referência para o próximo nó.
 
+    /**
+     * Construtor que inicializa um nó com os dados fornecidos.
+     *
+     * @param data os dados a serem armazenados no nó
+     */
     public Node(T data) {
       this.data = data;
     }
   }
 
-  private Node top;
-  private int height;
+  private Node top; // Referência para o topo da pilha.
+  private int height; // Altura da pilha (número de elementos).
 
+  /**
+   * Construtor que inicializa uma pilha vazia.
+   */
   public Stack() {
     top = null;
     height = 0;
   }
 
+  /**
+   * Imprime os elementos da pilha.
+   * Se um elemento for uma instância de AvlTree, imprime a árvore AVL.
+   */
   public void printStack() {
     Node auxNode = top;
     while (auxNode != null) {
@@ -30,6 +50,12 @@ public class Stack<T> {
     }
   }
 
+  /**
+   * Remove e retorna o elemento no topo da pilha.
+   *
+   * @return o elemento removido do topo da pilha
+   * @throws RuntimeException se a pilha estiver vazia
+   */
   public T pop() {
     if (top == null) {
       throw new RuntimeException("Pila vazia.");
@@ -41,6 +67,11 @@ public class Stack<T> {
     return poppedNode.data;
   }
 
+  /**
+   * Adiciona um elemento ao topo da pilha.
+   *
+   * @param data o elemento a ser adicionado à pilha
+   */
   public void push(T data) {
     Node newNode = new Node(data);
     if (top == null) {
@@ -52,14 +83,20 @@ public class Stack<T> {
     height++;
   }
 
+  /**
+   * Retorna o elemento no topo da pilha sem removê-lo.
+   *
+   * @return o elemento no topo da pilha
+   */
   public T peek() {
     return top.data;
   }
 
-  public Node getTop() {
-    return top;
-  }
-
+  /**
+   * Retorna a altura atual da pilha.
+   *
+   * @return a altura atual da pilha
+   */
   public int getHeight() {
     return height;
   }

@@ -1,8 +1,18 @@
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+/**
+ * Classe utilitária para criptografia.
+ */
 public class Crypt {
 
+  /**
+   * Retorna o hash SHA-1 de uma string.
+   *
+   * @param string a string para a qual o hash SHA-1 será calculado
+   * @return o hash SHA-1 da string fornecida
+   * @throws RuntimeException se o algoritmo SHA-1 não estiver disponível
+   */
   public static String sha1(String string) {
     try {
       MessageDigest mDigest = MessageDigest.getInstance("SHA1");
