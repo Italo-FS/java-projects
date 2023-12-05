@@ -5,25 +5,16 @@ public class Crypt {
 
   public static String sha1(String string) {
     try {
-      if (string == null) return "";
-
-      // Criação de uma instância do MessageDigest para SHA-1
-      MessageDigest digest = MessageDigest.getInstance("SHA-1");
-
-      // Converte a string para bytes e calcula o hash
-      byte[] hashBytes = digest.digest(string.getBytes());
-
-      // Converte o hash em representação hexadecimal
-      StringBuilder hexString = new StringBuilder();
-      for (byte hashByte : hashBytes) {
-        String hex = Integer.toHexString(0xff & hashByte);
-        if (hex.length() == 1) {
-          hexString.append('0');
-        }
-        hexString.append(hex);
+      MessageDigest mDigest = MessageDigest.getInstance("SHA1");
+      byte[] result = mDigest.digest(string.getBytes());
+      StringBuffer sb = new StringBuffer();
+      for (int i = 0; i < result.length; i++) {
+        sb.append(
+          Integer.toString((result[i] & 0xff) + 0x100, 16).substring(1)
+        );
       }
 
-      return hexString.toString();
+      return sb.toString();
     } catch (NoSuchAlgorithmException e) {
       throw new RuntimeException("Erro: Algoritmo SHA-1 não disponível");
     }

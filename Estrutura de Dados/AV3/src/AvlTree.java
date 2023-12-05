@@ -1,4 +1,4 @@
-public class BinarySearchTree<T extends Comparable<T>> {
+public class AvlTree<T extends Comparable<T>> {
 
   class Node {
 

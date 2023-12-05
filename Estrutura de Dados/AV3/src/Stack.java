@@ -21,8 +21,8 @@ public class Stack<T> {
   public void printStack() {
     Node auxNode = top;
     while (auxNode != null) {
-      if (auxNode.data instanceof BinarySearchTree) {
-        ((BinarySearchTree) auxNode.data).printTree();
+      if (auxNode.data instanceof AvlTree) {
+        ((AvlTree<?>) auxNode.data).printTree();
       } else {
         System.out.println("[" + auxNode.data + "]");
       }
