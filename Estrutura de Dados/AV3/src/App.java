@@ -11,12 +11,13 @@ public class App {
       }
 
       treeStack.push(new AvlTree<String>());
-      while (wordStack.getHeight() > 0) {
-        treeStack.peek().insert(wordStack.pop());
+      while (wordStack.size() > 0) {
+        String poppedWord = wordStack.pop();
+        treeStack.peek().insert(poppedWord);
       }
     }
 
-    while (treeStack.getHeight() > 0) {
+    while (treeStack.size() > 0) {
       String hash = treeStack.pop().hashTree();
       System.out.println(hash);
     }
@@ -29,8 +30,9 @@ public class App {
  *    1. Cria uma Pilha de Árvores (treeStack).
  *    2. Empilha cada palavra da linha na Pilha de Palavras (wordStack).
  *    3. Empilha uma nova Árvore de Strings no topo da Pilha de Árvores 'treeStack'.
- *    4. Desempilha cada palavra de 'wordStack' e insere na Árvore de Strings no topo
- *       da Pilha de Árvores (treeStack).
+ *    4. Desempilha cada palavra de 'wordStack' (poppedWord).
+ *    5. Insere cada palavra desempilhada (poppedWord) na Árvore de Strings
+ *       no topo da Pilha de Árvores (treeStack).
  * 3. Para cada árvore na Pilha de Árvores (treeStack):
  *    1. Desempilha cada Árvore e aplica o hash.
  *    2. Imprime o hash da Árvore no console.

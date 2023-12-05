@@ -97,7 +97,7 @@ public class Stack<T> {
    *
    * @return a altura atual da pilha
    */
-  public int getHeight() {
+  public int size() {
     return height;
   }
 }
